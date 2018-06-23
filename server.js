@@ -1,2 +1,8 @@
 const extract = require('./lib');
-extract('./packages/golf.zip', './content');
+
+const main = async() => {
+    const navTree = await extract('./packages/golf.zip', './content');
+    console.log(JSON.stringify(navTree));
+}
+
+main();
