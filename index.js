@@ -17,7 +17,7 @@ const extract = (filePath, contentDir) => {
             const manifest = `${contentDir}/${extractedDir}/imsmanifest.xml`;
             const data = fs.readFileSync(manifest);
             const scormContent = scormParser.parse(data);
-            const navTree = navTreeBuilder.buildNavigationModel(scormContent, 'windows10');
+            const navTree = navTreeBuilder.buildNavigationModel(scormContent, '/');
             resolve(navTree);
         })
         fs.createReadStream(`${filePath}`).pipe(unzipPipe);
